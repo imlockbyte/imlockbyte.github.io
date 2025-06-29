@@ -13,6 +13,8 @@
       padding: 20px;
       margin: 0;
       overflow: hidden;
+      filter: none;
+      transition: filter 1s ease;
     }
 
     @keyframes glow {
@@ -57,9 +59,29 @@
       text-shadow: 0 0 8px white;
       animation: glow 2s infinite alternate;
     }
+
+    /* Overlay */
+    #overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 3em;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
   </style>
 </head>
 <body>
+  <div id="overlay">click to enter</div>
+
   <h1 id="title">Mimar</h1>
 
   <p id="socialsText">Socials</p>
@@ -94,6 +116,16 @@
         const el = document.getElementById(id);
         if (el) el.style.transform = `translate(${x}px, ${y}px)`;
       });
+    });
+
+    // Overlay click to remove and enable audio
+    const overlay = document.getElementById('overlay');
+    overlay.addEventListener('click', () => {
+      overlay.style.opacity = '0';
+      document.body.style.filter = 'none';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+      }, 1000);
     });
   </script>
 </body>
