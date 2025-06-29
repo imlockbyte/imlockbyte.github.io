@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>lockbyte</title>
   <style>
     body {
       background-color: black;
       color: white;
       font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
     }
 
     @keyframes sliding {
@@ -20,11 +23,48 @@
       }
     }
 
+    @keyframes glow {
+      0% {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+      50% {
+        text-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 30px #f0f;
+      }
+      100% {
+        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      }
+    }
+
+    h1, p, a {
+      font-size: 1.5em;
+      animation: glow 2s infinite alternate;
+    }
+
     .socials {
-      animation-name: sliding;
-      animation-duration: 1s;
-      animation-fill-mode: forwards;
-      animation-timing-function: ease-out;
+      animation: sliding 1s ease-out forwards;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    a {
+      display: block;
+      margin: 10px 0;
+      color: lightblue;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -32,9 +72,10 @@
   <h1>Welcome</h1>
   <div class="socials">
     <p>My Socials:</p>
-    <img src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&" alt="Was my discord profile" width="100"><br><br>
-    <a href="https://www.youtube.com/@im_lockbyte" style="color: lightblue;">Youtube channel</a><br>
-    <a href="https://github.com/imlockbyte" style="color: lightblue;">Github</a>
+    <img src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&" alt="Was my discord profile"><br>
+    <a href="https://www.youtube.com/@im_lockbyte">Youtube channel</a>
+    <a href="https://github.com/imlockbyte">Github</a>
   </div>
 </body>
 </html>
+
