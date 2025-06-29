@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>lockbyte</title>
   <style>
     body {
@@ -21,7 +21,7 @@
       100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
     }
 
-    h1, p, a {
+    h1, p, a, img {
       animation: glow 2s infinite alternate;
       transition: transform 0.2s ease;
       position: relative;
@@ -29,11 +29,11 @@
 
     a {
       color: lightblue;
-      font-size: 1.4em;
+      font-size: 1.6em;
       font-weight: bold;
       text-decoration: none;
       display: block;
-      margin: 10px 0;
+      margin: 15px 0;
     }
 
     a:hover {
@@ -41,14 +41,11 @@
     }
 
     img {
-      width: 150px; /* smaller size */
+      width: 250px; /* bigger */
       height: auto;
       border-radius: 10px;
       margin-top: 20px;
-      animation: glow 2s infinite alternate;
       box-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
-      transition: transform 0.2s ease;
-      position: relative;
     }
 
     .trademark {
@@ -73,25 +70,27 @@
     alt="Profile image"
   >
 
-  <a href="https://www.youtube.com/@im_lockbyte" target="_blank">YouTube Channel</a>
-  <a href="https://github.com/imlockbyte" target="_blank">GitHub</a>
+  <a id="yt" href="https://www.youtube.com/@im_lockbyte" target="_blank">YouTube Channel</a>
+  <a id="git" href="https://github.com/imlockbyte" target="_blank">GitHub</a>
 
   <div class="trademark">mimar</div>
 
-  <!-- Music (make sure filename matches EXACTLY in your repo) -->
+  
   <audio autoplay loop>
-    <source src="beinghonest.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+    <source src="beinghonest.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
+    
     document.addEventListener("mousemove", (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 30;
       const y = (e.clientY / window.innerHeight - 0.5) * 30;
 
-      document.getElementById("title").style.transform = `translate(${x}px, ${y}px)`;
-      document.getElementById("socialsText").style.transform = `translate(${x}px, ${y}px)`;
-      document.getElementById("profileImage").style.transform = `translate(${x}px, ${y}px)`;
+      const targets = ["title", "socialsText", "profileImage", "yt", "git"];
+      targets.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.transform = `translate(${x}px, ${y}px)`;
+      });
     });
   </script>
 </body>
