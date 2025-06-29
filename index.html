@@ -75,13 +75,16 @@
 
   <div class="trademark">mimar</div>
 
-  
-  <audio autoplay loop>
-    <source src="beinghonest.mp3" type="audio/mpeg" />
-  </audio>
+  <!-- Invisible iframe for autoplay music -->
+  <iframe
+    src="beinghonest.mp3"
+    allow="autoplay"
+    style="display:none"
+    id="iframeAudio"
+  ></iframe>
 
   <script>
-    
+    // Make all elements follow mouse slightly
     document.addEventListener("mousemove", (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 30;
       const y = (e.clientY / window.innerHeight - 0.5) * 30;
