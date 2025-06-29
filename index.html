@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>lockbyte</title>
   <style>
     body {
@@ -29,7 +29,7 @@
 
     a {
       color: lightblue;
-      font-size: 1.5em;
+      font-size: 1.4em;
       font-weight: bold;
       text-decoration: none;
       display: block;
@@ -41,12 +41,12 @@
     }
 
     img {
-      width: 60%;
+      width: 150px; /* smaller size */
       height: auto;
       border-radius: 10px;
       margin-top: 20px;
       animation: glow 2s infinite alternate;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #f0f, 0 0 30px #0ff;
+      box-shadow: 0 0 10px #0ff, 0 0 20px #f0f;
       transition: transform 0.2s ease;
       position: relative;
     }
@@ -67,27 +67,31 @@
 
   <p id="socialsText">Socials</p>
 
-  <img id="profileImage" src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&" alt="Was my discord profile">
+  <img
+    id="profileImage"
+    src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&"
+    alt="Profile image"
+  >
 
-  <a href="https://www.youtube.com/@im_lockbyte" target="_blank">Youtube Channel</a>
+  <a href="https://www.youtube.com/@im_lockbyte" target="_blank">YouTube Channel</a>
   <a href="https://github.com/imlockbyte" target="_blank">GitHub</a>
 
   <div class="trademark">mimar</div>
 
-  <!-- Music -->
+  <!-- Music (make sure filename matches EXACTLY in your repo) -->
   <audio autoplay loop>
-    <source src="beinghonest.mp3" type="audio/mpeg" />
+    <source src="beinghonest.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
 
   <script>
-    // Makes text + image follow mouse a bit
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener("mousemove", (e) => {
       const x = (e.clientX / window.innerWidth - 0.5) * 30;
       const y = (e.clientY / window.innerHeight - 0.5) * 30;
 
-      document.getElementById('title').style.transform = `translate(${x}px, ${y}px)`;
-      document.getElementById('socialsText').style.transform = `translate(${x}px, ${y}px)`;
-      document.getElementById('profileImage').style.transform = `translate(${x}px, ${y}px)`;
+      document.getElementById("title").style.transform = `translate(${x}px, ${y}px)`;
+      document.getElementById("socialsText").style.transform = `translate(${x}px, ${y}px)`;
+      document.getElementById("profileImage").style.transform = `translate(${x}px, ${y}px)`;
     });
   </script>
 </body>
