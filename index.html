@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>lockbyte</title>
+  <title>Mimar</title>
   <style>
     body {
       background-color: black;
@@ -39,7 +39,18 @@
       }
     }
 
-    h1, p, a {
+    h1 {
+      font-size: 2em;
+      animation: glow 2s infinite alternate;
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .slide-in {
+      animation: sliding 1s ease-out forwards;
+    }
+
+    p, a {
       font-size: 1.5em;
       animation: glow 2s infinite alternate;
     }
@@ -48,6 +59,8 @@
       animation: sliding 1s ease-out forwards;
       max-width: 600px;
       margin: 0 auto;
+      opacity: 1;
+      transition: opacity 1s ease;
     }
 
     img {
@@ -72,20 +85,21 @@
       text-decoration: underline;
     }
 
-    /* Arrow style */
-    #arrow {
-      display: none;
+    #arrow, #backArrow {
       font-size: 2.5em;
       color: white;
       animation: glow 2s infinite alternate;
       cursor: pointer;
       margin-top: 30px;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
 
-    /* Steam section hidden by default */
     #steamSection {
       display: none;
       animation: glow 2s infinite alternate;
+      opacity: 0;
+      transition: opacity 1s ease;
     }
 
     #steamLogo {
@@ -95,7 +109,6 @@
       animation: glow 2s infinite alternate;
     }
 
-    /* Trademark */
     .trademark {
       position: fixed;
       bottom: 10px;
@@ -108,7 +121,7 @@
   </style>
 </head>
 <body>
-  <h1>Mimar</h1>
+  <h1 id="mimar" class="slide-in">Mimar</h1>
 
   <div class="socials" id="socials">
     <p>Socials</p>
@@ -127,21 +140,66 @@
     </a>
   </div>
 
+  <div id="backArrow" onclick="showSocials()">&lt;</div>
+
   <div class="trademark">mimar</div>
 
   <script>
-    // Show the arrow after the animation finishes
+    // Arrow fade in after social slide
     window.onload = function () {
       setTimeout(() => {
-        document.getElementById('arrow').style.display = 'inline-block';
-      }, 1200); // wait until socials slide in
+        document.getElementById('arrow').style.opacity = '1';
+      }, 1200);
     };
 
-    // When arrow is clicked
     function showSteam() {
-      document.getElementById('socials').style.display = 'none';
-      document.getElementById('arrow').style.display = 'none';
-      document.getElementById('steamSection').style.display = 'block';
+      const socials = document.getElementById('socials');
+      const arrow = document.getElementById('arrow');
+      const steam = document.getElementById('steamSection');
+      const mimar = document.getElementById('mimar');
+      const backArrow = document.getElementById('backArrow');
+
+      socials.style.opacity = '0';
+      arrow.style.opacity = '0';
+      mimar.style.opacity = '0';
+
+      setTimeout(() => {
+        socials.style.display = 'none';
+        arrow.style.display = 'none';
+        mimar.style.display = 'none';
+        steam.style.display = 'block';
+        backArrow.style.display = 'inline-block';
+
+        setTimeout(() => {
+          steam.style.opacity = '1';
+          backArrow.style.opacity = '1';
+        }, 50);
+      }, 1000);
+    }
+
+    function showSocials() {
+      const socials = document.getElementById('socials');
+      const arrow = document.getElementById('arrow');
+      const steam = document.getElementById('steamSection');
+      const mimar = document.getElementById('mimar');
+      const backArrow = document.getElementById('backArrow');
+
+      steam.style.opacity = '0';
+      backArrow.style.opacity = '0';
+
+      setTimeout(() => {
+        steam.style.display = 'none';
+        backArrow.style.display = 'none';
+        socials.style.display = 'block';
+        arrow.style.display = 'inline-block';
+        mimar.style.display = 'block';
+
+        setTimeout(() => {
+          socials.style.opacity = '1';
+          arrow.style.opacity = '1';
+          mimar.style.opacity = '1';
+        }, 50);
+      }, 1000);
     }
   </script>
 </body>
