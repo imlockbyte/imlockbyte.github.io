@@ -95,6 +95,8 @@
   <h1 id="title">Mimar</h1>
 
   <p id="socialsText">Socials</p>
+  
+  <p id="profileViews">Profile Views: Loading...</p>
 
   <img
     id="profileImage"
@@ -119,14 +121,14 @@
       const x = (e.clientX / window.innerWidth - 0.5) * 30;
       const y = (e.clientY / window.innerHeight - 0.5) * 30;
 
-      const targets = ["title", "socialsText", "profileImage", "yt", "git"];
+      const targets = ["title", "socialsText", "profileViews", "profileImage", "yt", "git"];
       targets.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.transform = `translate(${x}px, ${y}px)`;
       });
     });
 
-    
+   
     const overlay = document.getElementById('overlay');
     const audio = document.getElementById('backgroundMusic');
 
@@ -134,7 +136,7 @@
       overlay.style.opacity = '0';
       document.body.style.filter = 'none';
 
-      
+     
       audio.play().catch(e => {
         console.log('Playback failed:', e);
       });
@@ -143,6 +145,16 @@
         overlay.style.display = 'none';
       }, 1000);
     });
+
+    
+    fetch('https://api.countapi.xyz/hit/imlockbyte/lockbyteprofile')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById('profileViews').textContent = `Profile Views: ${data.value}`;
+      })
+      .catch(() => {
+        document.getElementById('profileViews').textContent = 'Profile Views: N/A';
+      });
   </script>
 </body>
 </html>
