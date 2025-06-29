@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>lockbyte</title>
   <style>
     body {
@@ -10,123 +11,44 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
-      overflow-x: hidden;
-      user-select: none;
+      margin: 0;
+      overflow: hidden;
     }
 
     @keyframes glow {
-      0% {
-        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-      }
-      50% {
-        text-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 30px #f0f;
-      }
-      100% {
-        text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
-      }
+      0% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
+      50% { text-shadow: 0 0 15px #f0f, 0 0 30px #f0f; }
+      100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff; }
     }
 
     h1, p, a {
-      font-size: 1.5em;
       animation: glow 2s infinite alternate;
-      display: inline-block; /* needed for transform */
-      transition: transform 0.2s ease-out;
-      margin: 0.5em 0;
-      vertical-align: middle;
-    }
-
-    h1 {
-      font-size: 2em;
-      opacity: 1;
-      transition: opacity 2.5s ease;
-      margin-bottom: 1em;
-    }
-
-    .socials, #steamSection {
-      max-width: 600px;
-      margin: 0 auto;
-      opacity: 1;
-      transition: opacity 2.5s ease;
-      user-select: none;
-      line-height: 2.2em;
-    }
-
-    img {
-      max-width: 80%;
-      height: auto;
-      border-radius: 10px;
-      margin: 10px auto 20px;
-      animation: glow 2s infinite alternate;
-      outline: 2px solid transparent;
-      outline-offset: 4px;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #f0f, 0 0 30px #0ff;
-      animation-name: glow;
-      animation-duration: 2s;
-      animation-iteration-count: infinite;
-      animation-direction: alternate;
-      display: block;
+      transition: transform 0.2s ease;
       position: relative;
-      transition: transform 0.2s ease-out;
-      will-change: transform;
-      user-select: none;
     }
 
     a {
       color: lightblue;
+      font-size: 1.5em;
       font-weight: bold;
       text-decoration: none;
-      font-size: 1.5em;
-      transition: transform 0.2s ease-out;
-      user-select: none;
-      vertical-align: middle;
-      margin: 0 0.5em;
-      display: inline-flex;
-      align-items: center;
+      display: block;
+      margin: 10px 0;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    /* Logos next to links */
-    .logo {
-      width: 24px;
-      height: 24px;
-      margin-left: 8px;
+    img {
+      width: 60%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 20px;
       animation: glow 2s infinite alternate;
-      outline: 2px solid transparent;
-      outline-offset: 4px;
       box-shadow: 0 0 10px #0ff, 0 0 20px #f0f, 0 0 30px #0ff;
-      border-radius: 4px;
-      transition: transform 0.2s ease-out;
-      user-select: none;
-      flex-shrink: 0;
-    }
-
-    #arrow, #backArrow {
-      font-size: 2.5em;
-      color: white;
-      animation: glow 2s infinite alternate;
-      cursor: pointer;
-      margin-top: 30px;
-      opacity: 0;
-      transition: opacity 2.5s ease;
-      user-select: none;
-      display: inline-block;
-      transition: transform 0.2s ease-out;
-    }
-
-    #steamLogo {
-      width: 50px;
-      vertical-align: middle;
-      margin-right: 10px;
-      animation: glow 2s infinite alternate;
-      outline: 2px solid transparent;
-      outline-offset: 4px;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #f0f, 0 0 30px #0ff;
-      border-radius: 5px;
-      transition: transform 0.2s ease-out;
-      user-select: none;
+      transition: transform 0.2s ease;
+      position: relative;
     }
 
     .trademark {
@@ -137,187 +59,36 @@
       font-size: 0.9em;
       text-shadow: 0 0 8px white;
       animation: glow 2s infinite alternate;
-      user-select: none;
-    }
-
-    /* Spacing for socials items */
-    .social-item {
-      margin: 15px 0;
     }
   </style>
 </head>
 <body>
-  <h1 id="mimar">Mimar</h1>
+  <h1 id="title">Mimar</h1>
 
-  <div class="socials" id="socials">
-    <p class="social-item">Socials</p>
+  <p id="socialsText">Socials</p>
 
-    <p class="social-item">
-      Discord:
-      <a href="https://discord.com" target="_blank" style="color: lightblue; text-decoration: none;">
-        Join Discord
-        <img
-          class="logo"
-          id="discordLogo"
-          src="https://cdn.discordapp.com/attachments/882261316126007408/1389016265955475597/discord-black-icon-1.png?ex=686315b4&is=6861c434&hm=0b4ddb4f444ad513a8913e9720ff7753c61207f9c5b7f545d61fcf0dba8512d2&"
-          alt="Discord Logo"
-        />
-      </a>
-    </p>
+  <img id="profileImage" src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&" alt="Was my discord profile">
 
-    <p class="social-item">
-      <a href="https://www.youtube.com/@im_lockbyte" target="_blank">Youtube channel</a>
-    </p>
-
-    <p class="social-item">
-      <a href="https://github.com/imlockbyte" target="_blank" style="color: lightblue; text-decoration: none;">
-        Github
-        <img
-          class="logo"
-          id="githubLogo"
-          src="https://cdn.discordapp.com/attachments/882261316126007408/1389016339099811930/github.png?ex=686315c5&is=6861c445&hm=a05535619cc9c16788e0fe2ff36b59f7f800f615e24d5dd7a62ab63efba77350&"
-          alt="GitHub Logo"
-        />
-      </a>
-    </p>
-
-    <img
-      id="discordImg"
-      src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&"
-      alt="Was my discord profile"
-    />
-  </div>
-
-  <div id="arrow" onclick="showSteam()">&#x3e;</div>
-
-  <div id="steamSection">
-    <p>My Steam:</p>
-    <a href="https://steamcommunity.com/profiles/76561198405133564/" target="_blank">
-      <img
-        id="steamLogo"
-        src="https://cdn.discordapp.com/attachments/1350957316081713293/1389008858256511086/steam-logo-steam-icon-free-free-vector.jpg?ex=68630ece&is=6861bd4e&hm=0cb746d44158da93de97d26495fcd31bf95bd524df133f1f063b4355762d3f58&"
-        alt="Steam Logo"
-      />
-      Steam Profile
-    </a>
-  </div>
-
-  <div id="backArrow" onclick="showSocials()">&lt;</div>
+  <a href="https://www.youtube.com/@im_lockbyte" target="_blank">Youtube Channel</a>
+  <a href="https://github.com/imlockbyte" target="_blank">GitHub</a>
 
   <div class="trademark">mimar</div>
 
-  
-<audio autoplay loop>
-  <source src="beinghonest.mp3" type="audio/mpeg" />
-</audio>
-    
+  <!-- Music -->
+  <audio autoplay loop>
+    <source src="beinghonest.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
-    // Elements that follow the mouse
-    const socials = document.getElementById('socials');
-    const steamSection = document.getElementById('steamSection');
-    const mimar = document.getElementById('mimar');
-    const discordImg = document.getElementById('discordImg');
-    const steamLogo = document.getElementById('steamLogo');
-    const arrow = document.getElementById('arrow');
-    const backArrow = document.getElementById('backArrow');
-    const discordLogo = document.getElementById('discordLogo');
-    const githubLogo = document.getElementById('githubLogo');
+    // Makes text + image follow mouse a bit
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 30;
+      const y = (e.clientY / window.innerHeight - 0.5) * 30;
 
-    // smmother shit
-    let mouseX = 0, mouseY = 0;
-    let currentX = 0, currentY = 0;
-    const maxTranslate = 15;
-
-    // aa ignore
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+      document.getElementById('title').style.transform = `translate(${x}px, ${y}px)`;
+      document.getElementById('socialsText').style.transform = `translate(${x}px, ${y}px)`;
+      document.getElementById('profileImage').style.transform = `translate(${x}px, ${y}px)`;
     });
-
-    
-    function animate() {
-      
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-
-     
-      const distX = (mouseX - centerX) / centerX;
-      const distY = (mouseY - centerY) / centerY;
-
-      
-      const targetX = distX * maxTranslate;
-      const targetY = distY * maxTranslate;
-
-      
-      currentX += (targetX - currentX) * 0.1;
-      currentY += (targetY - currentY) * 0.1;
-
-      
-      socials.style.transform = `translate(${currentX}px, ${currentY}px)`;
-      mimar.style.transform = `translate(${currentX}px, ${currentY}px)`;
-      arrow.style.transform = `translate(${currentX}px, ${currentY}px)`;
-      discordImg.style.transform = `translate(${currentX * 1.3}px, ${currentY * 1.3}px)`;
-
-     
-      discordLogo.style.transform = `translate(${currentX * 0.8}px, ${currentY * 0.8}px)`;
-      githubLogo.style.transform = `translate(${currentX * 0.8}px, ${currentY * 0.8}px)`;
-
-      // For steam section
-      steamSection.style.transform = `translate(${currentX}px, ${currentY}px)`;
-      steamLogo.style.transform = `translate(${currentX * 1.3}px, ${currentY * 1.3}px)`;
-      backArrow.style.transform = `translate(${currentX}px, ${currentY}px)`;
-
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Show arrow after delay
-    window.onload = function () {
-      setTimeout(() => {
-        arrow.style.opacity = '1';
-      }, 1200);
-    };
-
-    function showSteam() {
-      socials.style.opacity = '0';
-      arrow.style.opacity = '0';
-      mimar.style.opacity = '0';
-
-      setTimeout(() => {
-        socials.style.display = 'none';
-        arrow.style.display = 'none';
-        mimar.style.display = 'none';
-        steamSection.style.display = 'block';
-        backArrow.style.display = 'inline-block';
-
-        setTimeout(() => {
-          steamSection.style.opacity = '1';
-          backArrow.style.opacity = '1';
-        }, 50);
-      }, 2000);
-    }
-
-    function showSocials() {
-      steamSection.style.opacity = '0';
-      backArrow.style.opacity = '0';
-
-      setTimeout(() => {
-        steamSection.style.display = 'none';
-        backArrow.style.display = 'none';
-        socials.style.display = 'block';
-        arrow.style.display = 'inline-block';
-        mimar.style.display = 'block';
-
-        setTimeout(() => {
-          socials.style.opacity = '1';
-          arrow.style.opacity = '1';
-          mimar.style.opacity = '1';
-        }, 50);
-      }, 2000);
-    }
   </script>
 </body>
 </html>
-
