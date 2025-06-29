@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 20px;
+      overflow-x: hidden;
     }
 
     @keyframes sliding {
@@ -26,12 +27,15 @@
     @keyframes glow {
       0% {
         text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+        box-shadow: 0 0 5px #0ff;
       }
       50% {
         text-shadow: 0 0 10px #f0f, 0 0 20px #f0f, 0 0 30px #f0f;
+        box-shadow: 0 0 10px #f0f;
       }
       100% {
         text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+        box-shadow: 0 0 5px #0ff;
       }
     }
 
@@ -52,6 +56,7 @@
       border-radius: 10px;
       margin-top: 10px;
       margin-bottom: 20px;
+      animation: glow 2s infinite alternate;
     }
 
     a {
@@ -66,16 +71,78 @@
     a:hover {
       text-decoration: underline;
     }
+
+    /* Arrow style */
+    #arrow {
+      display: none;
+      font-size: 2.5em;
+      color: white;
+      animation: glow 2s infinite alternate;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    /* Steam section hidden by default */
+    #steamSection {
+      display: none;
+      animation: glow 2s infinite alternate;
+    }
+
+    #steamLogo {
+      width: 50px;
+      vertical-align: middle;
+      margin-right: 10px;
+      animation: glow 2s infinite alternate;
+    }
+
+    /* Trademark */
+    .trademark {
+      position: fixed;
+      bottom: 10px;
+      right: 15px;
+      color: white;
+      font-size: 0.9em;
+      text-shadow: 0 0 8px white;
+      animation: glow 2s infinite alternate;
+    }
   </style>
 </head>
 <body>
   <h1>Mimar</h1>
-  <div class="socials">
+
+  <div class="socials" id="socials">
     <p>Socials</p>
     <img src="https://cdn.discordapp.com/attachments/882261316126007408/1388965831156961440/38ed84053515e96a58d7d0c9fca1caa2.jpg?ex=6862e6bb&is=6861953b&hm=4a163e68ece1ec41e6bcf05bbe69a0e5525be0b313f6fd5849a41780a40bba19&" alt="Was my discord profile"><br>
     <a href="https://www.youtube.com/@im_lockbyte">Youtube channel</a>
     <a href="https://github.com/imlockbyte">Github</a>
   </div>
+
+  <div id="arrow" onclick="showSteam()">&#x3e;</div>
+
+  <div id="steamSection">
+    <p>My Steam:</p>
+    <a href="https://steamcommunity.com/profiles/76561198405133564/" target="_blank">
+      <img id="steamLogo" src="https://cdn.discordapp.com/attachments/1350957316081713293/1389008858256511086/steam-logo-steam-icon-free-free-vector.jpg?ex=68630ece&is=6861bd4e&hm=0cb746d44158da93de97d26495fcd31bf95bd524df133f1f063b4355762d3f58&" alt="Steam Logo">
+      Steam Profile
+    </a>
+  </div>
+
+  <div class="trademark">mimar</div>
+
+  <script>
+    // Show the arrow after the animation finishes
+    window.onload = function () {
+      setTimeout(() => {
+        document.getElementById('arrow').style.display = 'inline-block';
+      }, 1200); // wait until socials slide in
+    };
+
+    // When arrow is clicked
+    function showSteam() {
+      document.getElementById('socials').style.display = 'none';
+      document.getElementById('arrow').style.display = 'none';
+      document.getElementById('steamSection').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
-
